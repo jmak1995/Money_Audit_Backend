@@ -9,8 +9,9 @@ module.exports = (req, res) => {
   ]).then(({ rows }) => {
     if (rows[0]) {
       if (rows[0].password === req.body.password) {
-        var token = jwt.sign(
-          { username: req.body.username },
+        const user = req.body.username;
+        const token = jwt.sign(
+          { user },
           process.env.JWT_KEY
           // {
           //   expiresIn: 120,
