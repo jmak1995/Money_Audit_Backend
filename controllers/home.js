@@ -12,7 +12,6 @@ module.exports = (req, res) => {
       [user.user]
     ).then(({ rows }) => {
       res.send({ username: user, data: rows });
-      // console.log(rows);
     });
   }
 };
